@@ -44,6 +44,8 @@ public class Mathy implements NonplayerCharacter {
                     break;
                 case "/":
                     result = first / second;
+                case "%":
+                    result = first % second;
                     break;
                 default:
                     throw new Exception("Unknown operator: " + operator);
