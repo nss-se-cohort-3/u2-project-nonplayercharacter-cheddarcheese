@@ -100,4 +100,16 @@ class HostTest {
         assertSame(echo, host.getManager(),
                 "Expected manager to match the manager that was set.");
     }
-}
+    @Test
+    void displayCharacterIntroductions_whenCalled_returnsFixedPaddedNames(){
+        String name = "John";
+        String paddedName = String.format("%-9s", name);
+
+            MockStringProvider input = new MockStringProvider(List.of(name));
+            MockStringPrinter output = new MockStringPrinter();
+
+            NonplayerCharacter result = host.interact(input, output);
+
+        assertEquals("John     ",paddedName,"Expected names to have a fixed width" );
+        }
+    }
