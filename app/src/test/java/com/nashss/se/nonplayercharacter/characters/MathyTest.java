@@ -1,5 +1,6 @@
 package com.nashss.se.nonplayercharacter.characters;
 
+import com.nashss.se.nonplayercharacter.io.StringProvider;
 import com.nashss.se.nonplayercharacter.io.mocks.MockStringPrinter;
 import com.nashss.se.nonplayercharacter.io.mocks.MockStringProvider;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,8 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MathyTest {
 
@@ -132,5 +132,21 @@ class MathyTest {
 
         assertSame(echo, mathy.getManager(),
                 "Expected manager to match the manager that was set.");
+    }
+
+    @Test
+    void interact_whenGivenAModulusExpression_printResult(){
+        //Given
+        String expression = "16 % 5";
+        String expected = "1";
+
+        MockStringProvider input = new MockStringProvider(List.of(expression));
+        MockStringPrinter output = new MockStringPrinter();
+
+        //When
+        mathy.interact(input, output);
+
+        //Then
+        assertEquals(expected + "\n", output.getLatest(), "Expected 1 to be printed on the line because 16%5=1");
     }
 }
