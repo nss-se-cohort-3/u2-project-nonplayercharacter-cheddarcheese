@@ -20,12 +20,12 @@ public class Magic8Ball implements NonplayerCharacter {
 
     @Override
     public String introduction() {
-        return "Ask me a question, make sure to include a ? at the end of your question! ";
+        return "Ask me about the future!";
     }
     @Override
     public NonplayerCharacter interact(StringProvider input, StringPrinter output) {
+        output.println("Ask me a question about the future!");
         String userText = input.get();
-        if(userText.charAt(userText.length()-1) == '?') {
 
             responses.add("It is certain");
             responses.add("It is decidedly so");
@@ -49,11 +49,7 @@ public class Magic8Ball implements NonplayerCharacter {
 
             Random rand = new Random();
             output.println(responses.get(rand.nextInt(responses.size())));
-            return this;
-        }
-        else{
-            throw new IllegalArgumentException("Ask me a question, remember to put a ? at the end of your question");
-        }
+            return getManager();
     }
 
     @Override
