@@ -43,6 +43,20 @@ class MathyTest {
         assertEquals(expected + "\n", output.getLatest(),
                 String.format("Expected %s to be %s followed by a newline.", expression, expected));
     }
+    @Test
+    void interact_whenGivenADoubleExpression_printResults(){
+        String expression= "3.5 * 3.65";
+        String expected = "12.775";
+
+        MockStringProvider input = new MockStringProvider(List.of(expression));
+        MockStringPrinter output = new MockStringPrinter();
+
+        mathy.interact(input, output);
+
+        assertEquals(expected + "\n", output.getLatest(),
+                String.format("Expected %s to be %s followed by a newline.", expression, expected));
+    }
+
 
     @Test
     void interact_whenGivenSubtractExpression_printsResult() {
@@ -57,6 +71,7 @@ class MathyTest {
         assertEquals(expected + "\n", output.getLatest(),
                 String.format("Expected %s to be %s followed by a newline.", expression, expected));
     }
+
 
     @Test
     void interact_whenGivenMultiplyExpression_printsResult() {

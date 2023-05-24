@@ -27,29 +27,53 @@ public class Mathy implements NonplayerCharacter {
 
         try {
             String[] parts = expression.split(" ");
-            int first = Integer.parseInt(parts[0]);
             String operator = parts[1];
-            int second = Integer.parseInt(parts[2]);
 
-            int result;
-            switch(operator) {
-                case "+":
-                    result = first + second;
-                    break;
-                case "-":
-                    result = first - second;
-                    break;
-                case "*":
-                    result = first * second;
-                    break;
-                case "/":
-                    result = first / second;
-                    break;
-                default:
-                    throw new Exception("Unknown operator: " + operator);
+            if (parts[0].contains(".") || parts[2].contains(".")) {
+                double first = Double.parseDouble(parts[0]);
+                double second = Double.parseDouble(parts[2]);
+                double result;
+                switch (operator) {
+                    case "+":
+                        result = first + second;
+                        break;
+                    case "-":
+                        result = first - second;
+                        break;
+                    case "*":
+                        result = first * second;
+                        break;
+                    case "/":
+                        result = first / second;
+                        break;
+                    default:
+                        throw new Exception("Unknown operator: " + operator);
+                }
+
+                output.println(String.valueOf(result));
+            } else {
+                int first= Integer.parseInt(parts[0]);
+                int second = Integer.parseInt(parts[2]);
+                int result;
+                switch(operator) {
+                    case "+":
+                        result = first + second;
+                        break;
+                    case "-":
+                        result = first - second;
+                        break;
+                    case "*":
+                        result = first * second;
+                        break;
+                    case "/":
+                        result = first / second;
+                        break;
+                    default:
+                        throw new Exception("Unknown operator: " + operator);
+                }
+
+                output.println(String.valueOf(result));
             }
-
-            output.println(String.valueOf(result));
 
             return this;
         } catch (Exception e) {

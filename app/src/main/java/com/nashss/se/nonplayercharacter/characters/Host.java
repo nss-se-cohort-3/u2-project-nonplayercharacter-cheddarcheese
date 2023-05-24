@@ -21,6 +21,7 @@ public class Host implements NonplayerCharacter {
     private final Map<String, NonplayerCharacter> characters;
 
 
+
     /**
      * Create a Host with a given name
      * @param name The Host's name
