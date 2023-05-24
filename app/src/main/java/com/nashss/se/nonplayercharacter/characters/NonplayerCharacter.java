@@ -12,11 +12,10 @@ public class NonplayerCharacter {
     String help;
     NonplayerCharacter manager;
 
-    public NonplayerCharacter(String name, String introduction, String help, NonplayerCharacter manager) {
+    public NonplayerCharacter(String name, String introduction, String help) {
         this.name = name;
         this.introduction = introduction;
         this.help = help;
-        this.manager = manager;
     }
 
     /**
@@ -43,6 +42,14 @@ public class NonplayerCharacter {
      */
     public NonplayerCharacter interact(StringProvider input, StringPrinter output) {
         return this.getManager();
+    }
+
+    public void setHelp(String helper) {
+        this.help = helper;
+    }
+
+    public String getHelp(){
+        return this.help;
     }
 
     /**

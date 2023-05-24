@@ -12,7 +12,7 @@ import java.util.*;
  *
  * A Host instance acts as the "parent" to other "child" NonplayerCharacters
  */
-public class Host implements NonplayerCharacter {
+public class Host extends NonplayerCharacter {
     private boolean hasBeenIntroduced = false;
     private String username;
     private NonplayerCharacter manager;

@@ -6,9 +6,15 @@ import com.nashss.se.nonplayercharacter.io.StringProvider;
 /**
  * A NonplayerCharacter that echos anything said to it
  */
-public class Echo implements NonplayerCharacter {
+public class Echo extends NonplayerCharacter {
 
     private NonplayerCharacter manager;
+
+    private String help;
+
+    public Echo(String name, String introduction, String help) {
+        super(name, introduction, help);
+    }
 
     @Override
     public String name() {
@@ -30,6 +36,16 @@ public class Echo implements NonplayerCharacter {
 
         output.println(userText);
         return this;
+    }
+
+    @Override
+    public void setHelp(String helper) {
+        this.help = helper;
+    }
+
+    @Override
+    public String getHelp(){
+        return this.help;
     }
 
     @Override

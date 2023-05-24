@@ -6,8 +6,14 @@ import com.nashss.se.nonplayercharacter.io.StringProvider;
 /**
  * A NonplayerCharacter that evaluates simple math expressions.
  */
-public class Mathy implements NonplayerCharacter {
+public class Mathy extends NonplayerCharacter {
     private NonplayerCharacter manager;
+
+    private String help;
+
+    public Mathy(String name, String introduction, String help) {
+        super(name, introduction, help);
+    }
 
     @Override
     public String name() {
@@ -86,6 +92,16 @@ public class Mathy implements NonplayerCharacter {
             output.println("You did something wrong...I'm out!");
             return getManager();
         }
+    }
+
+    @Override
+    public void setHelp(String helper) {
+        this.help = helper;
+    }
+
+    @Override
+    public String getHelp(){
+        return this.help;
     }
 
     @Override
