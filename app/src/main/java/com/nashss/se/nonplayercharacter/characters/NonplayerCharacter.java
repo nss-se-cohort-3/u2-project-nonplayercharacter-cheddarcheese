@@ -6,16 +6,32 @@ import com.nashss.se.nonplayercharacter.io.StringProvider;
 /**
  * Represents a computer-controlled "character" like you might find in a role-playing game
  */
-public interface NonplayerCharacter {
+public class NonplayerCharacter {
+    String name;
+    String introduction;
+    String help;
+    NonplayerCharacter manager;
+
+    public NonplayerCharacter(String name, String introduction, String help, NonplayerCharacter manager) {
+        this.name = name;
+        this.introduction = introduction;
+        this.help = help;
+        this.manager = manager;
+    }
+
     /**
      * @return The character's name
      */
-    String name();
+    public String name() {
+        return this.name;
+    }
 
     /**
      * @return A brief introduction to/description of the character
      */
-    String introduction();
+    public String introduction() {
+        return this.introduction;
+    }
 
     /**
      * Perform the main action of the character
@@ -25,7 +41,9 @@ public interface NonplayerCharacter {
      *         Often `this` same NonplayerCharacter, but it may be a `manager`
      *         or any other instance of this interface.
      */
-    NonplayerCharacter interact(StringProvider input, StringPrinter output);
+    public NonplayerCharacter interact(StringProvider input, StringPrinter output) {
+        return this.getManager();
+    }
 
     /**
      * Sets the manager of this NonplyaerCharacter
@@ -36,7 +54,9 @@ public interface NonplayerCharacter {
      *
      * @param manager The NonplayerCharacter responsible for this object
      */
-    void setManager(NonplayerCharacter manager);
+    public void setManager(NonplayerCharacter manager) {
+        this.manager = manager;
+    }
 
     /**
      * Get the manager of this object
@@ -47,5 +67,7 @@ public interface NonplayerCharacter {
      *
      * @return The manager of this object
      */
-    NonplayerCharacter getManager();
+    public NonplayerCharacter getManager() {
+        return this.manager;
+    }
 }
