@@ -21,7 +21,7 @@ public class Mathy implements NonplayerCharacter {
 
     @Override
     public NonplayerCharacter interact(StringProvider input, StringPrinter output) {
-        output.println("Enter an expression like: 2 + 2. (+, - , * and / are supported)");
+        output.println("Enter an expression like: 2 + 2. (+, - , *, % and / are supported)");
         output.print("> ");
         String expression = input.get();
 
@@ -44,6 +44,7 @@ public class Mathy implements NonplayerCharacter {
                     break;
                 case "/":
                     result = first / second;
+                    break;
                 case "%":
                     result = first % second;
                     break;
