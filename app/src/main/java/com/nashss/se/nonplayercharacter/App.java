@@ -53,7 +53,8 @@ public class App {
         List<NonplayerCharacter> subordinates = List.of(
                 new Echo(),
                 new Mathy(),
-                new AngryOldMan("Herbert"));
+                new AngryOldMan("Herbert"),
+                new Magic8Ball());
 
         App app = new App(input, output, host, subordinates);
         app.run();
