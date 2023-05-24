@@ -57,7 +57,6 @@ class MathyTest {
                 String.format("Expected %s to be %s followed by a newline.", expression, expected));
     }
 
-
     @Test
     void interact_whenGivenSubtractExpression_printsResult() {
         String expression = "2 - 2";
@@ -71,7 +70,6 @@ class MathyTest {
         assertEquals(expected + "\n", output.getLatest(),
                 String.format("Expected %s to be %s followed by a newline.", expression, expected));
     }
-
 
     @Test
     void interact_whenGivenMultiplyExpression_printsResult() {
