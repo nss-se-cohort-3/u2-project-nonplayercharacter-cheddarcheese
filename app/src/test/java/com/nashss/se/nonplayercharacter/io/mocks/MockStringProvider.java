@@ -1,5 +1,6 @@
 package com.nashss.se.nonplayercharacter.io.mocks;
 
+import com.nashss.se.nonplayercharacter.characters.NonplayerCharacter;
 import com.nashss.se.nonplayercharacter.io.StringProvider;
 
 import java.util.ArrayList;
