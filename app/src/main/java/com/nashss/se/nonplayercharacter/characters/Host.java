@@ -19,6 +19,7 @@ public class Host extends NonplayerCharacter {
     private final Map<String, NonplayerCharacter> characters;
 
 
+
     /**
      * Create a Host with a given name
      * @param name The Host's name
@@ -87,7 +88,8 @@ public class Host extends NonplayerCharacter {
     private void displayCharacterIntroductions(StringPrinter output) {
         for (String name : characterNames()) {
             NonplayerCharacter character = characters.get(name);
-            output.println(String.format("%s : %s", name, character.introduction()));
+            String paddedName = String.format("%-15s",name);
+            output.println(String.format("%s : %s", paddedName, character.introduction()));
         }
     }
 

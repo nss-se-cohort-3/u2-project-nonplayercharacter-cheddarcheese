@@ -100,4 +100,33 @@ class HostTest {
         assertSame(echo, host.getManager(),
                 "Expected manager to match the manager that was set.");
     }
+
+@Test
+void interact_whenCalled_displaysPaddedNames() {
+    NonplayerCharacter character1 = new Echo();
+    NonplayerCharacter character2 = new Mathy();
+
+    host.addSubordinate(character1);
+    host.addSubordinate(character2);
+
+    MockStringProvider input = new MockStringProvider(List.of("username", "exit"));
+    MockStringPrinter output = new MockStringPrinter();
+
+    host.interact(input, output);
+
+    String paddedName1 = String.format("%-15s", character1.name()) + " : ";
+    String paddedName2 = String.format("%-15s", character2.name()) + " : ";
+
+    boolean foundPaddedName1 = false, foundPaddedName2 = false;
+    for (String printedString : output.getPrintedStrings()) {
+        if (printedString.startsWith(paddedName1)) {
+            foundPaddedName1 = true;
+        }
+        if (printedString.startsWith(paddedName2)) {
+            foundPaddedName2 = true;
+        }
+    }
+    assertTrue(foundPaddedName1, "Expected to find the padded name of character1 in the output.");
+    assertTrue(foundPaddedName2, "Expected to find the padded name of character2 in the output.");
+    }
 }
