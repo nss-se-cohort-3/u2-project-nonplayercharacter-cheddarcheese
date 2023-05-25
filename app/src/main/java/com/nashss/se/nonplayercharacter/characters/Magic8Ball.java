@@ -10,25 +10,11 @@ import java.util.Random;
 public class Magic8Ball extends NonplayerCharacter {
 
     private NonplayerCharacter manager;
-    private String help;
 
-    public Magic8Ball(String name, String introduction, String help) {
-        super(name, introduction, help);
+    public Magic8Ball() {
+        super("Magic8Ball", "Ask me about the future!", "I will predict the future and give great answers for any question you ask.");
     }
 
-//    public Magic8Ball(String name, String introduction, String help, NonplayerCharacter manager) {
-//        super(name, introduction, help, manager);
-//    }
-
-    @Override
-    public String name() {
-        return "Magic8Ball";
-    }
-
-    @Override
-    public String introduction() {
-        return "Ask me about the future!";
-    }
     @Override
     public NonplayerCharacter interact(StringProvider input, StringPrinter output) {
 
@@ -59,16 +45,6 @@ public class Magic8Ball extends NonplayerCharacter {
             Random rand = new Random();
             output.println(responses.get(rand.nextInt(responses.size())));
             return getManager();
-    }
-
-    @Override
-    public void setHelp(String helper) {
-        this.help = helper;
-    }
-
-    @Override
-    public String getHelp(){
-        return this.help;
     }
 
     @Override

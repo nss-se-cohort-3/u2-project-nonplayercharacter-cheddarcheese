@@ -10,20 +10,8 @@ public class Echo extends NonplayerCharacter {
 
     private NonplayerCharacter manager;
 
-    private String help;
-
-    public Echo(String name, String introduction, String help) {
-        super(name, introduction, help);
-    }
-
-    @Override
-    public String name() {
-        return "Echo-Echo";
-    }
-
-    @Override
-    public String introduction() {
-        return "As long as you have something to say, so do I.";
+    public Echo() {
+        super("Echo-Echo", "As long as you have something to say, so do I.","I will repeat whatever you type.");
     }
 
     @Override
@@ -36,16 +24,6 @@ public class Echo extends NonplayerCharacter {
 
         output.println(userText);
         return this;
-    }
-
-    @Override
-    public void setHelp(String helper) {
-        this.help = helper;
-    }
-
-    @Override
-    public String getHelp(){
-        return this.help;
     }
 
     @Override

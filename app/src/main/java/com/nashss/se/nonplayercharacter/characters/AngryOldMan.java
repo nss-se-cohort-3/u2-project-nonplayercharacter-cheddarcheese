@@ -28,27 +28,15 @@ public class AngryOldMan extends NonplayerCharacter {
             "?", List.of("Yes", "No", "Maybe", "Don't sass me!"),
             "!", List.of("Don't be so sensitive.", "What? Cut me a switch!", "No back-talk in this house!"));
 
-    private final String name;
-    private String help;
     private NonplayerCharacter manager;
 
     /**
      * CReate an AngryOldMan with a given name
      * @param name The angry old man's name
      */
-    public AngryOldMan(String name, String introduction, String help) {
-        this.name = name;
-        super(introduction, help);
-    }
+    public AngryOldMan(String name) {
+        super(name, "Get off my lawn!", "I will give you wisdom of an old man");
 
-    @Override
-    public String name() {
-        return this.name;
-    }
-
-    @Override
-    public String introduction() {
-        return "Get off my lawn!";
     }
 
     @Override
@@ -71,16 +59,6 @@ public class AngryOldMan extends NonplayerCharacter {
         output.println(responses.get(randomIndex));
 
         return this;
-    }
-
-    @Override
-    public void setHelp(String helper) {
-        this.help = helper;
-    }
-
-    @Override
-    public String getHelp(){
-        return this.help;
     }
 
     @Override

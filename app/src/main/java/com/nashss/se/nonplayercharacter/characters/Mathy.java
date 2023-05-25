@@ -9,20 +9,9 @@ import com.nashss.se.nonplayercharacter.io.StringProvider;
 public class Mathy extends NonplayerCharacter {
     private NonplayerCharacter manager;
 
-    private String help;
+    public Mathy() {
 
-    public Mathy(String name, String introduction, String help) {
-        super(name, introduction, help);
-    }
-
-    @Override
-    public String name() {
-        return "Mathy";
-    }
-
-    @Override
-    public String introduction() {
-        return "We can do some math if you want to.";
+        super("Mathy", "We can do some math if you want to.", "I will calculate the answer for a given math expression.");
     }
 
     @Override
@@ -92,16 +81,6 @@ public class Mathy extends NonplayerCharacter {
             output.println("You did something wrong...I'm out!");
             return getManager();
         }
-    }
-
-    @Override
-    public void setHelp(String helper) {
-        this.help = helper;
-    }
-
-    @Override
-    public String getHelp(){
-        return this.help;
     }
 
     @Override

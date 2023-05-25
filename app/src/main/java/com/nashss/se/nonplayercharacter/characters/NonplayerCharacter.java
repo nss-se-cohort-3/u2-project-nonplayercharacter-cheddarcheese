@@ -32,6 +32,10 @@ public class NonplayerCharacter {
         return this.introduction;
     }
 
+    public String help() {
+        return this.help;
+    }
+
     /**
      * Perform the main action of the character
      * @param input Provides user input
@@ -42,14 +46,6 @@ public class NonplayerCharacter {
      */
     public NonplayerCharacter interact(StringProvider input, StringPrinter output) {
         return this.getManager();
-    }
-
-    public void setHelp(String helper) {
-        this.help = helper;
-    }
-
-    public String getHelp(){
-        return this.help;
     }
 
     /**
