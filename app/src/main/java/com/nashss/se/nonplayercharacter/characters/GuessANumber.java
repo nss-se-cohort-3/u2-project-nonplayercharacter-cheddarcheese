@@ -30,9 +30,8 @@ public class GuessANumber implements NonplayerCharacter {
 
         Random rand = new Random();
         int answer = rand.nextInt(100) + 1; //CORRECT ANSWER
-        output.println("yo! The answer is " + answer);
+        //output.println("yo! The answer is " + answer);
         int attemptsNum = 1;
-
 
 
             while (attemptsNum < maxAttempts) {
