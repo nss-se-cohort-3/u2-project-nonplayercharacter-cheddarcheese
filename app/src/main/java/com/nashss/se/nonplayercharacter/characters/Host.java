@@ -99,7 +99,7 @@ public class Host implements NonplayerCharacter {
     private void displayCharacterIntroductions(StringPrinter output) {
         for (String name : characterNames()) {
             NonplayerCharacter character = characters.get(name);
-            String paddedName = String.format("%-10s",name);
+            String paddedName = String.format("%-15s",name);
             output.println(String.format("%s : %s", paddedName, character.introduction()));
         }
     }
@@ -109,6 +109,7 @@ public class Host implements NonplayerCharacter {
         Collections.sort(names);
         return names;
     }
+
 
     @VisibleForTesting
     public Map<String, NonplayerCharacter> getCharacters() {

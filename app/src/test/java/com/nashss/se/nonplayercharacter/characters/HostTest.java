@@ -5,6 +5,7 @@ import com.nashss.se.nonplayercharacter.io.mocks.MockStringProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -100,16 +101,26 @@ class HostTest {
         assertSame(echo, host.getManager(),
                 "Expected manager to match the manager that was set.");
     }
+
     @Test
-    void displayCharacterIntroductions_whenCalled_returnsFixedPaddedNames(){
-        String name = "John";
-        String paddedName = String.format("%-9s", name);
-
-            MockStringProvider input = new MockStringProvider(List.of(name));
-            MockStringPrinter output = new MockStringPrinter();
-
-            NonplayerCharacter result = host.interact(input, output);
-
-        assertEquals("John     ",paddedName,"Expected names to have a fixed width" );
+    void displayCharacterIntroductions_whenCalled_returnsFixedPaddedNames() {
+        List<NonplayerCharacter> charactersToAdd = List.of(new Echo(), new Mathy());
+        for (NonplayerCharacter character : charactersToAdd) {
+            host.addSubordinate(character);
         }
+
+        List<String> characterNames = new ArrayList<>();
+        for (NonplayerCharacter character : charactersToAdd) {
+            characterNames.add(character.name());
+        }
+
+        MockStringProvider input = new MockStringProvider(characterNames);
+        MockStringPrinter output = new MockStringPrinter();
+
+        NonplayerCharacter result = host.interact(input, output);
+
+        String paddedResultName = String.format("%-15s", result.name());
+        assertEquals(15,paddedResultName.length(), "Expected names to have a fixed width of 15 characters");
+
     }
+}
