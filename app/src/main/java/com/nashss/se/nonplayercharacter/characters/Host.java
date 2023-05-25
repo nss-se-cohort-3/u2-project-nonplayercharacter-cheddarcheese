@@ -110,7 +110,6 @@ public class Host implements NonplayerCharacter {
         return names;
     }
 
-
     @VisibleForTesting
     public Map<String, NonplayerCharacter> getCharacters() {
         return new HashMap<>(characters);
