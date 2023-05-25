@@ -3,6 +3,8 @@ package com.nashss.se.nonplayercharacter.characters;
 import com.nashss.se.nonplayercharacter.io.StringPrinter;
 import com.nashss.se.nonplayercharacter.io.StringProvider;
 
+import java.util.Set;
+
 /**
  * A NonplayerCharacter that echos anything said to it
  */

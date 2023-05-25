@@ -54,6 +54,7 @@ public class App {
                 new Echo(),
                 new Mathy(),
                 new AngryOldMan("Herbert"),
+                new GuessANumber(),
                 new Magic8Ball());
 
         App app = new App(input, output, host, subordinates);
