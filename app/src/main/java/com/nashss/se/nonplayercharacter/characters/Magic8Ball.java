@@ -7,26 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Magic8Ball implements NonplayerCharacter {
-
-    private final List<String> responses = new ArrayList<>();
+public class Magic8Ball extends NonplayerCharacter {
 
     private NonplayerCharacter manager;
 
-    @Override
-    public String name() {
-        return "Magic8Ball";
+    public Magic8Ball() {
+        super("Magic8Ball", "Ask me about the future!", "I will predict the future and give great answers for any question you ask.");
     }
 
-    @Override
-    public String introduction() {
-        return "Ask me about the future!";
-    }
     @Override
     public NonplayerCharacter interact(StringProvider input, StringPrinter output) {
-        output.println("Ask me a question about the future!");
-        String userText = input.get();
 
+        List<String> responses = new ArrayList<>();
             responses.add("It is certain");
             responses.add("It is decidedly so");
             responses.add("Without a doubt");
@@ -45,6 +37,9 @@ public class Magic8Ball implements NonplayerCharacter {
             responses.add("My sources say no");
             responses.add("Outlook not so good");
             responses.add("very doubtful");
+
+        output.println("Ask me a question about the future!");
+        String userText = input.get();
 
 
             Random rand = new Random();

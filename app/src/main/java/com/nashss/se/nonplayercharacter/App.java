@@ -49,12 +49,15 @@ public class App {
     public static void main(String[] args) {
         StringProvider input = new ConsoleStringProvider();
         StringPrinter output = new ConsoleStringPrinter();
+
         Host host = new Host("Phil");
+
         List<NonplayerCharacter> subordinates = List.of(
                 new Echo(),
                 new Mathy(),
-                new AngryOldMan("Herbert"),
-                new Magic8Ball());
+                new AngryOldMan("Henry"),
+                new Magic8Ball()
+                );
 
         App app = new App(input, output, host, subordinates);
         app.run();

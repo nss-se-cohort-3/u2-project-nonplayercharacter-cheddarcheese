@@ -6,18 +6,12 @@ import com.nashss.se.nonplayercharacter.io.StringProvider;
 /**
  * A NonplayerCharacter that echos anything said to it
  */
-public class Echo implements NonplayerCharacter {
+public class Echo extends NonplayerCharacter {
 
     private NonplayerCharacter manager;
 
-    @Override
-    public String name() {
-        return "Echo-Echo";
-    }
-
-    @Override
-    public String introduction() {
-        return "As long as you have something to say, so do I.";
+    public Echo() {
+        super("Echo-Echo", "As long as you have something to say, so do I.","I will repeat whatever you type.");
     }
 
     @Override

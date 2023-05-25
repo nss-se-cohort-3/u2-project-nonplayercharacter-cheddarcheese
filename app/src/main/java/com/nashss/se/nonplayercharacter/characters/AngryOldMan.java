@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * A character who is angry about...everything
  */
-public class AngryOldMan implements NonplayerCharacter {
+public class AngryOldMan extends NonplayerCharacter {
 
     // You can find documentation about `Map.of` here: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#of(K,V)
     // You can find documentation about `List.of` here: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#of(E)
@@ -28,7 +28,6 @@ public class AngryOldMan implements NonplayerCharacter {
             "?", List.of("Yes", "No", "Maybe", "Don't sass me!"),
             "!", List.of("Don't be so sensitive.", "What? Cut me a switch!", "No back-talk in this house!"));
 
-    private final String name;
     private NonplayerCharacter manager;
 
     /**
@@ -36,17 +35,8 @@ public class AngryOldMan implements NonplayerCharacter {
      * @param name The angry old man's name
      */
     public AngryOldMan(String name) {
-        this.name = name;
-    }
+        super(name, "Get off my lawn!", "I will give you wisdom of an old man");
 
-    @Override
-    public String name() {
-        return this.name;
-    }
-
-    @Override
-    public String introduction() {
-        return "Get off my lawn!";
     }
 
     @Override

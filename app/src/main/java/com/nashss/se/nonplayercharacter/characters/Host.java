@@ -12,12 +12,10 @@ import java.util.*;
  *
  * A Host instance acts as the "parent" to other "child" NonplayerCharacters
  */
-public class Host implements NonplayerCharacter {
+public class Host extends NonplayerCharacter {
     private boolean hasBeenIntroduced = false;
     private String username;
     private NonplayerCharacter manager;
-
-    private final String name;
     private final Map<String, NonplayerCharacter> characters;
 
 
@@ -27,6 +25,9 @@ public class Host implements NonplayerCharacter {
      * @param name The Host's name
      */
     public Host(String name) {
+        super(name, String.format(
+                "Hello and welcome! I'm your host, %s, and I'm glad your here!",
+                name), "I am the host and I guide you through the game!");
         this.name = name;
         this.characters = new HashMap<>();
     }
@@ -39,18 +40,6 @@ public class Host implements NonplayerCharacter {
     public void addSubordinate(NonplayerCharacter subordinate) {
         subordinate.setManager(this);
         characters.put(subordinate.name(), subordinate);
-    }
-
-    @Override
-    public String name() {
-        return this.name;
-    }
-
-    @Override
-    public String introduction() {
-        return String.format(
-                "Hello and welcome! I'm your host, %s, and I'm glad your here!",
-                this.name);
     }
 
     @Override

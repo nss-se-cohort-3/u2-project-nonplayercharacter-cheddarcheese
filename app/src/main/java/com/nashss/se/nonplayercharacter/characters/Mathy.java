@@ -6,17 +6,12 @@ import com.nashss.se.nonplayercharacter.io.StringProvider;
 /**
  * A NonplayerCharacter that evaluates simple math expressions.
  */
-public class Mathy implements NonplayerCharacter {
+public class Mathy extends NonplayerCharacter {
     private NonplayerCharacter manager;
 
-    @Override
-    public String name() {
-        return "Mathy";
-    }
+    public Mathy() {
 
-    @Override
-    public String introduction() {
-        return "We can do some math if you want to.";
+        super("Mathy", "We can do some math if you want to.", "I will calculate the answer for a given math expression.");
     }
 
     @Override
